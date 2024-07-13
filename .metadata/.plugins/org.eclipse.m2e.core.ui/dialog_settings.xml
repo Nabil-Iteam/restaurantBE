@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Administrateur\Desktop\FORMATIONS\spring-mai\ValidationProject\restau"/>
 			<item value="C:\Users\Administrateur\Desktop\FORMATIONS\spring-mai\ValidationProject\restaurantBE"/>
 		</list>
 		<list key="projectNameTemplate">

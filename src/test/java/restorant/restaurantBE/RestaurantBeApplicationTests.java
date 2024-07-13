@@ -1,4 +1,4 @@
-package restorant.restaurantBE;
+package restaurant.restaurantBE;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

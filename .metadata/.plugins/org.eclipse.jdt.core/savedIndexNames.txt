@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+C:\Users\Administrateur\Desktop\FORMATIONS\spring-mai\ValidationProject\restaurantBE\.metadata\.plugins\org.eclipse.jdt.core
+3386258657.index

@@ -1,1 +1,10 @@
 2024-07-10 11:53:57,928 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-07-12 02:07:30,643 [Worker-6: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: restaurant:restaurantBE:0.0.1-SNAPSHOT @ C:\Users\Administrateur\Desktop\FORMATIONS\spring-mai\ValidationProject\restau\pom.xml.
+2024-07-12 02:07:33,023 [Worker-6: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /restaurantBE/src/main/java
+2024-07-12 02:07:33,024 [Worker-6: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /restaurantBE/src/main/resources
+2024-07-12 02:07:33,026 [Worker-6: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /restaurantBE/src/main/resources
+2024-07-12 02:07:33,028 [Worker-6: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /restaurantBE/src/test/java
+2024-07-12 02:07:43,507 [Worker-6: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 18 sec
+2024-07-12 02:07:46,880 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-12 02:07:46,907 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-12 02:07:46,910 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Administrateur\Desktop\FORMATIONS\spring-mai\ValidationProject\restau\src\test\resources
