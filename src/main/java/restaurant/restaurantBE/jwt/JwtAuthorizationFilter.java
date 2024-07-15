@@ -1,5 +1,8 @@
 package restaurant.restaurantBE.jwt;
 
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.io.IOException;
 
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,15 +16,12 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import restaurant.restaurantBE.services.UserService;
-
+import restaurant.restaurantBE.servicesImpl.UserService;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
-
     private final UserService userService;
     private final JwtUtil jwtUtil;
-
 
     public JwtAuthorizationFilter(AuthenticationManager authManager, UserService userService, JwtUtil jwtUtil) {
         super(authManager);
@@ -29,11 +29,39 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
         this.jwtUtil = jwtUtil;
     }
 
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         String header = request.getHeader("Authorization");
 
+        if (header == null || !header.startsWith("Bearer ")) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        UsernamePasswordAuthenticationToken authentication = getAuthentication(request);
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        chain.doFilter(request, response);
+    }
+
+    private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
+        String token = request.getHeader("Authorization");
+        if (token != null) {
+            String user = Jwts.parser()
+                    .setSigningKey("SecretKeyToGenJWTs")
+                    .parseClaimsJws(token.replace("Bearer ", ""))
+                    .getBody()
+                    .getSubject();
+
+            if (user != null) {
+                UserDetails userDetails = userService.loadUserByUsername(user);
+                return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            }
+            return null;
+        }
+        return null;
+    }
+}
 
         if (header == null || !header.startsWith("Bearer ")) {
             chain.doFilter(request, response);

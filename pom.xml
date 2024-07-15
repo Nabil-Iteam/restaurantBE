@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.1</version>
+		<version>3.2.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>restaurant</groupId>
@@ -55,6 +55,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- CGH D -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -84,8 +85,8 @@
 			<version>0.11.2</version>
 			<scope>runtime</scope>
 		</dependency>
-
 		
+		<!-- CGH F -->
 	</dependencies>
 	
 

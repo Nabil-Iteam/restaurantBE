@@ -19,12 +19,10 @@ import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.web.SecurityFilterChain;
 
-import restaurant.restaurantBE.services.UserService;
-
+import restaurant.restaurantBE.servicesImpl.*;
 
 @Configuration
 public class SecurityConfig {
-
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -37,28 +35,23 @@ public class SecurityConfig {
             .jwt()
             .jwtAuthenticationConverter(jwtAuthenticationConverter());
 
-
         return http.build();
     }
-
 
     @Bean
     public JwtAuthenticationConverter jwtAuthenticationConverter() {
         return new JwtAuthenticationConverter();
     }
 
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
 
     @Bean
     public UserDetailsService userDetailsService(UserService userService) {
