@@ -2,6 +2,9 @@ package restaurant.restaurantBE.models;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +21,9 @@ import jakarta.persistence.Table;
 	private Long id ;
 	private String name ;
 	
-	@ManyToMany(mappedBy = "roles")
+	
+	@ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("roles")
     private Set<UserModel> users;
 
 	public RoleModel(Long id, String name, Set<UserModel> users) {
@@ -55,8 +60,7 @@ import jakarta.persistence.Table;
 	}
 
 	public RoleModel() {
-		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	

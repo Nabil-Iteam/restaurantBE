@@ -2,6 +2,7 @@ package restaurant.restaurantBE.servicesImpl;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -47,6 +48,19 @@ public class UserService implements UserDetailsService {
     public UserModel findByEmail(String email) {
         return userRepository.findByEmail(email).orElse(null);
     }
+    
+    // Add this method to find users by role name
+    public List<UserModel> findUsersByRoleName(String roles) {
+        return userRepository.findByRolesName(roles);
+    }
+
+    
+    
+ // Add this method to find users by role name
+    public List<UserModel> findAllUsers() {
+        return userRepository.findAll();
+    }
+    
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
