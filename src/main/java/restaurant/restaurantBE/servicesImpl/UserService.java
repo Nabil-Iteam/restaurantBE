@@ -53,6 +53,11 @@ public class UserService implements UserDetailsService {
     public List<UserModel> findUsersByRoleName(String roles) {
         return userRepository.findByRolesName(roles);
     }
+    
+ // Add this method to find users by role name
+    public void deleteUserById(Long id) {
+        userRepository.deleteById(id);
+    }
 
     
     

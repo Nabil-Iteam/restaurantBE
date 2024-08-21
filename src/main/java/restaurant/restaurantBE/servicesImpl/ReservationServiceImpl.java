@@ -13,32 +13,32 @@ import restaurant.restaurantBE.services.ReservationService;
 @Service
 public class ReservationServiceImpl implements ReservationService {
 
-    @Autowired
-    private ReservationRepository rRepo;
+	@Autowired
+	private ReservationRepository rRepo;
 
-    @Override
-    public List<Reservation> getAllReservations() {
-        // TODO Auto-generated method stub
-        return rRepo.findAll();
-    }
+	@Override
+	public List<Reservation> getAllReservations() {
+		// TODO Auto-generated method stub
+		return rRepo.findAll();
+	}
 
-    @Override
-    public Reservation getReservationById(Long id) {
-        // TODO Auto-generated method stub
-        Optional<Reservation> r = rRepo.findById(id);
-		return r.isPresent() ? r.get() : null ;    
-    }
+	@Override
+	public Reservation getReservationById(Long id) {
+		// TODO Auto-generated method stub
+		Optional<Reservation> r = rRepo.findById(id);
+		return r.isPresent() ? r.get() : null;
+	}
 
-    @Override
-    public void deleteReservationById(Long id) {
-        // TODO Auto-generated method stub
-        rRepo.deleteById(id);
-    }
+	@Override
+	public void deleteReservationById(Long id) {
+		// TODO Auto-generated method stub
+		rRepo.deleteById(id);
+	}
 
-    @Override
-    public Reservation addReservation(Reservation r) {
-        // TODO Auto-generated method stub
-        return rRepo.save(r);
-    }
+	@Override
+	public Reservation addReservation(Reservation r) {
+		// TODO Auto-generated method stub
+		return rRepo.save(r);
+	}
 
 }

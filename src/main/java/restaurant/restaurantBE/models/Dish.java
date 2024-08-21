@@ -14,33 +14,33 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
 @Entity
-@Table(name="dishes")
+@Table(name = "dishes")
 public class Dish {
 
 	@Id
-	@Column(name="DISH_ID")
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	@Column(name = "DISH_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String description;
 	private Float price;
-	
-	@OneToMany(mappedBy="dish",cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy = "dish", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("dish")
 	private List<Reservation> reservations;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties("dishes")
-    private UserModel user;
-	
-	
+	@JoinColumn(name = "user_id")
+	@JsonIgnoreProperties("dishes")
+	private UserModel user;
+
 	public Dish() {
-		
+
 	}
 
-	public Dish(String name, String description, Float price, List<Reservation> reservations, UserModel chef) {
+	public Dish(String name, String description, Float price, List<Reservation> reservations, UserModel user) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -51,6 +51,10 @@ public class Dish {
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -85,29 +89,22 @@ public class Dish {
 		this.reservations = reservations;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public UserModel getUser() {
 		return user;
 	}
 
-	public void setUser(UserModel chef) {
-		this.user = chef;
+	public void setUser(UserModel user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
 		return "Dish [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
-				+ ", reservations=" + reservations + ", chef=" + user + "]";
+				+ ", reservations=" + reservations + ", user=" + user + "]";
 	}
 
+	
+	
 
 
-	
-
-	
-	
-	
 }

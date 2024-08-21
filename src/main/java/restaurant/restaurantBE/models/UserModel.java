@@ -38,16 +38,20 @@ public class UserModel {
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<RoleModel> roles;
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	/* @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("user")
-	private List<Reservation> reservations;
+	private List<Reservation> reservations; */
+
+	/* @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("client")
+	private List<CartModel> cart; */
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("user")
 	private List<Dish> dishes;
 
 	public UserModel(String firstName, String lastName, String email, String password, Long phone, String address,
-			String experience, String speciality, Set<RoleModel> roles, List<Reservation> reservations,
+			String experience, String speciality, Set<RoleModel> roles,
 			List<Dish> dishes) {
 		super();
 		this.firstName = firstName;
@@ -59,7 +63,6 @@ public class UserModel {
 		this.experience = experience;
 		this.speciality = speciality;
 		this.roles = roles;
-		this.reservations = reservations;
 		this.dishes = dishes;
 	}
 
@@ -143,16 +146,7 @@ public class UserModel {
 		this.roles = roles;
 	}
 
-	public List<Reservation> getReservations() {
-		return reservations;
-	}
-
-	public void setReservations(List<Reservation> reservations) {
-		this.reservations = reservations;
-	}
 	
-	
-
 	public List<Dish> getDishes() {
 		return dishes;
 	}
@@ -161,13 +155,11 @@ public class UserModel {
 		this.dishes = dishes;
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "UserModel [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", password=" + password + ", phone=" + phone + ", address=" + address + ", experience=" + experience
-				+ ", speciality=" + speciality + ", roles=" + roles + ", reservations=" + reservations + ", dishes="
+				+ ", speciality=" + speciality + ", roles=" + roles + ", dishes="
 				+ dishes + "]";
 	}
 
